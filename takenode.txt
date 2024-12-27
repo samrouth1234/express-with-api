@@ -1,0 +1,60 @@
+// Bisic  
+const express  = require('express');
+
+const app = express();
+
+app.get('/' , () => {
+  res.send('Hello World');
+})
+
+app.get('/about' , (req , res) =>{
+  res.send('About Page');
+});
+
+app.listen(8000 ,() => console.log('Server is running on port 8000'));
+
+/*
+** Response Object Express.js
+** res.status( code ) == > res.status( 404 )
+** Adding an object, we can see that is sending to the client. res.set( name, value ) == > res.set( {medium: 'Hi thank you for reading'}) res.send( 'set' )
+** We can set a cookie from the server side. res.cookie(name, value, [options] ) == > res.cookie( 'cook', 'first', []) res.send( 'Cookie' )
+** res.clearCookie(name, [ options ]) == > This is to clear the cookie
+** res.redirect( [status], url ) == > res.redirect( 301, '/' )
+** res.send( body ) Send a response to the client, the default type is ‘text/html’ but if you want to send other kind of information you need to change the res.type()
+** res.json( json ) OR res.jsonp( json ) Sends a JSON format to the client == > res.json({ page: 'Medium', comment: 'Thanks for Reading', emoji: '😃'})
+** res.end() Terminate the conection without sending something to the client
+** res.format( object ) This is for sending multiple formats to the client this is really useful for APIs.
+** res.attachment( filename ) This is a response to the header to make that the browser need to doenload somethig
+** res.download( path, [filename], [callback]) The same as response download
+** res.links( links ) 
+** res.render( view, [locals], callback)
+*/
+
+/* 
+** setup static folder
+** create file html in folder public
+*/
+
+const express  = require('express');
+
+const app = express();
+
+app.get('/' , (req , res) =>{
+  res.sendFile(path.join(__dirname, 'public' , 'index.html'));
+});
+
+app.get('/about' , (req , res) =>{
+  res.sendFile(path.join(__dirname, 'public' , 'about.html'));
+})
+
+app.listen(8000 ,() => console.log('Server is running on port 8000'));
+
+======================== OR =========================================
+
+const express  = require('express');
+
+const app = express();
+
+app.use(express.static(path.join(__dirname , 'public')));
+
+app.listen(8000 ,() => console.log('Server is running on port 8000'));
