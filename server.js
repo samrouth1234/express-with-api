@@ -21,16 +21,17 @@ app.use(express.urlencoded({ extended: false }));
 // Logger middleware
 app.use(logger);
 
-// setup static folder and middleware
+// Setup static folder and middleware
 app.use(express.static(path.join(__dirname, 'public')));
 
-// setup routes
+// Setup routes
 app.use('/api/v1/users', users);
 
-// Error global middleware
+/*
+* Error handler middleware
+* @description: This function is used to handle 404 errors
+*/
 app.use(notFound);
-
-// Error handler middleware
 app.use(errorHandeler);
 
 app.listen(port ,() => console.log(`Server is running on port ${port}`));
