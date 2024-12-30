@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
-</head>
-<body>
-  <h1>This is Home Page</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <main style="display: flex; justify-content: center; align-items: center">
+      <div>
+        <!--height: 100vh;-->
+        <h2>Welcome My Homepage</h2>
+        <form id="add-user-form">
+          <label for="name">Name :</label>
+          <input type="text" id="name" name="name" />
+          <br />
+          <button type="submit" style="margin-top: 10px">Add New User</button>
+        </form>
+        <button id="get-user-btn" style="margin-top: 20px">Click Me !</button>
+        <p id="show-all-user"></p>
+      </div>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
